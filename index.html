@@ -90,7 +90,7 @@
               <h3><i class="fa fa-paint-brush"></i> Set up the base map</h3>
                     <p>For setting up the base map, all code should be placed in the <code>script</code> section of the html document.</p>
                     <ul>
-                        <li>First we will initialize the map using <code>L.map()</code> in Leaflet and set its view (<code>setView()</code>)to our chosen <b>geographical coordinates</b> and a <b>zoom level</b>:
+                        <li>First we will initialize the map using <code>L.map()</code> in Leaflet and set its view (<code>setView()</code>) to our chosen <b>geographical coordinates</b> and a <b>zoom level</b>:
                             <pre><var>var map</var> = L.map(<span style="color:#cc6600">'map'</span>).setView(<span style="color:blue">[37.8, -96]</span>, <span style="color:blue">4</span>);</pre>
                         About <b>Zoom Level</b>: Interactive, tiled maps are designed and rendered at a number of different scales. A zoom level is a predefined scale at which a map is rendered. OpenStreetMap, Google Maps, and most other online maps zoom levels are scaled such that the entire world fills a 256x256 pixel tile at zoom level 0, and doubles in width and height at each subsequent zoom level. For example: at zoom level 6 you get a full view of a medium-sized country. At zoom level 11 you’re looking at a metropolitan-region-sized area. At Zoom level 16 you’re down to a neighborhood scale (according to <a href="https://www.mapbox.com/tilemill/docs/manual/basics/" target="_blank">Mapbox</a>).</li>
                     </ul>
@@ -100,7 +100,7 @@
                       <br>For published tile maps, examples of URL templates are usually provided. Below is the information from the <a href="http://maps.stamen.com/#watercolor/12/37.7706/-122.3782" target="_blank">Stamen Maps</a>' website:</p>
                       <img src="img/url_stamen.png">
                     <ul>
-                            <li>Next we will add a tile layer from Stamen Toner. The <code>L.tileLayer()</code> is used to add tile maps.  In addition to the <a href="http://leafletjs.com/reference.html#url-template" target="_blank"><b>URL template</b>, </a> the <b>attribution</b> text and the maximum zoom level of the layer are also defined below:
+                            <li>Next we will add a tile layer from Stamen Toner. <code>L.tileLayer()</code> is used to add tile maps.  In addition to the <a href="http://leafletjs.com/reference.html#url-template" target="_blank"><b>URL template</b>, </a> the <b>attribution</b> text and the maximum zoom level of the layer are also defined below:
                                 <pre>L.tileLayer(<span style="color:#cc6600">'http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png'</span>, {
                attribution: <span style="color:#cc6600">'Map tiles by &lt;a href="http://stamen.com"&gt;Stamen Design&lt;/a&gt;, under &lt;a href="http://creativecommons.org/licenses/by/3.0"&gt;CC BY 3.0&lt;/a&gt;. Data by &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt;, under &lt;a href="http://www.openstreetmap.org/copyright"&gt;ODbL&lt;/a&gt;.'</span>,
                maxZoom: <span style="color:blue">12</span>
