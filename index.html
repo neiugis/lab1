@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Lab 1 - Basemaps in Leaflet </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
+
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body style="background-color:#660066">
+
+    <div class="brand">Lab 1. Basemaps in Leaflet <i class="fa fa-leaf"></i> </div>
+    <div class="address-bar">GES 387 - Interactive Cartography</div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+
+                <div class="col-lg-12 text-center" style="text-align:left">
+              <h3>Overview</h3>
+                    <p><i class="fa fa-spinner fa-spin"></i>  In this lab, we will get started with Leaflet and add tile layers as basemaps.</p>
+                    <p><i class="fa fa-spinner fa-spin"></i>  Please submit your assignment via Dropbox on D2L according to the requirements of each question.</p>
+                    <p style="color:red"><b><i class="fa fa-spinner fa-spin"></i>  Due: 11:59 pm, Wednesday, 9/21</b></p>
+
+
+             <h3><i class="fa fa-paint-brush"></i> Preparation steps</h3>
+                    <p>Before you start, you may consider to create a <b>new file folder</b> for this lab where we can save the html, css and javascript files later.</p>
+                    <ul>
+                        <li>First, open your <b>html editor</b> (e.g., <b>Atom</b>) and add the following lines to prepare your page.
+                    These are the basic html tags you have learned from the HTML tutorial. Indentation in HTML doesn't matter, but it helps us better organize the documents. <br>
+                    <pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;My map&lt;/title&gt;
+
+    &lt;/head&gt;
+
+    &lt;body&gt;
+
+   &lt;/body&gt;
+&lt;/html&gt;</pre>
+                    Then, save the document as <code>map1.html</code> to your working folder. You will have to specify the file extension as <b>.html</b> to make it work.</li>
+
+                        <li><b>Download <a href="https://dl.dropboxusercontent.com/u/63869166/leaflet.zip">Leaflet</a>.</b> Unzip it and you will find four items in it: two JavaScript files (<code>leaflet-src.js</code> and <code>leaflet.js</code>), one CSS file (<code>leaflet.css</code>) and one folder named <code>images</code>. Copy and paste <b>all of the four items</b> to your working folder (same location as your HTML file).</li>
+
+                        <li>In the <code>head</code> section of your html document, include the following line to link to the Leaflet CSS file (Note the <b>relative path</b> is used here as the map.html and leaflet.css file have been saved in the same folder):
+                        <pre>&lt;link rel="stylesheet" href="leaflet.css" /&gt;</pre></li>
+
+                        <li>Also include Leaflet JavaScript file in the <code>head</code> section (Similarly, relative path!):
+                    <pre>&lt;script src="leaflet.js"&gt;&lt;/script&gt;</pre></li>
+
+                        <li>In the <code>body</code> section, include a <code>div</code> element where you want your map to be. Assign it a certain id and define its height:
+                            <pre>&lt;div id=<span style="color:#cc6600">"map"</span> style="height: <span style="color:blue">500px</span>"&gt;&lt;/div&gt;</pre></li>
+
+                        <li>Also in the <code>body</code> section, include the <code>script</code> element below the <code>div</code> element:
+                        <pre>&lt;script type="text/javascript"&gt;
+
+&lt;/script&gt;</pre></li>
+
+                    </ul>
+                    <p>Now you’re ready to initialize the map.</p>
+
+
+              <h3><i class="fa fa-paint-brush"></i> Set up the base map</h3>
+                    <p>For setting up the base map, all code should be placed in the <code>script</code> section of the html document.</p>
+                    <ul>
+                        <li>First we will initialize the map and set its view to our chosen <b>geographical coordinates</b> and a <b>zoom level</b>:
+                            <pre><var>var map</var> = L.map(<span style="color:#cc6600">'map'</span>).setView(<span style="color:blue">[37.8, -96]</span>, <span style="color:blue">4</span>);</pre>
+                        About <b>Zoom Level</b>: Interactive, tiled maps are designed and rendered at a number of different scales. A zoom level is a predefined scale at which a map is rendered. OpenStreetMap, Google Maps, and most other online maps zoom levels are scaled such that the entire world fills a 256x256 pixel tile at zoom level 0, and doubles in width and height at each subsequent zoom level. For example: at zoom level 6 you get a full view of a medium-sized country. At zoom level 11 you’re looking at a metropolitan-region-sized area. At Zoom level 16 you’re down to a neighborhood scale (according to <a href="https://www.mapbox.com/tilemill/docs/manual/basics/" target="_blank">Mapbox</a>).</li>
+                    </ul>
+                        <br><p>With Leaflet, we can add tile layers as base map.
+                    A <strong>tile layer</strong> is a set of web-accessible tiles that reside on a server. Access to the appropriate tiles in the tile layer depends on the URL to the tile layer. The URL contains parameterized values, which are used by the map viewer to dynamically request the tiles that correspond with the extent and scale of the web map as you pan and zoom (ESRI).</p>
+                    <ul>
+                            <li>Next we will add a tile layer to our map, in this case it is <a href="http://maps.stamen.com/#watercolor/12/37.7706/-122.3782" target="_blank">Stamen</a> Toner. Creating a tile layer usually involves setting the <a href="http://leafletjs.com/reference.html#url-template" target="_blank"><b>URL template</b> (please read!!!)</a> for the tile images, the <b>attribution</b> text and the maximum zoom level of the layer:
+                                <pre>L.tileLayer(<span style="color:#cc6600">'http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.jpg'</span>, {
+               attribution: <span style="color:#cc6600">'Map tiles by &lt;a href="http://stamen.com"&gt;Stamen Design&lt;/a&gt;, under &lt;a href="http://creativecommons.org/licenses/by/3.0"&gt;CC BY 3.0&lt;/a&gt;. Data by &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt;, under &lt;a href="http://www.openstreetmap.org/copyright"&gt;ODbL&lt;/a&gt;.'</span>,
+               maxZoom: <span style="color:blue">12</span>
+            }).addTo(map);</pre>
+                        Appropriate copyright <b>attribution</b> is usually required by the layer providers. You should be able to find official guidance on their website. Note the attribution text is surrounded by quotation marks.<br>
+                        <br>
+                      If you have followed along, your map should look like below (No? Take a look at the <a href="map/basemap.txt" target="_blank">sample code</a>)
+                      <iframe src="map/basemap.html" width=100% height=520 frameborder=0></iframe><br><br>
+
+                      The tutorial <a href="http://leafletjs.com/examples/quick-start.html" target="_blank">Leaflet Quick Start Guide</a> gives an example of using <b>Mapbox</b> tilesets. You can also pull tiles from Open Street Map, Bing, MapQuest, and any other XYZ source you can find. Please take some time to explore at least one of these options on your own. Let me know if you have any questions.</li></ul>
+
+
+
+    </div>
+    <!-- /.container -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Copyright &copy; Ting Liu 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
