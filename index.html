@@ -101,7 +101,7 @@
                       <img src="img/url_stamen.png">
                     <ul>
                             <li>Next we will add a tile layer from Stamen Toner. <code>L.tileLayer()</code> is used to load tile maps. <code>addTo()</code> will add the tiles to the map, which are used as basemaps.  In addition to the <a href="http://leafletjs.com/reference.html#url-template" target="_blank"><b>URL template</b>, </a> the <b>attribution</b> text and the maximum zoom level of the layer are also defined below:
-                                <pre>L.tileLayer(<span style="color:#cc6600">'http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png'</span>, {
+                                <pre>L.tileLayer(<span style="color:#cc6600">'http://tile.stamen.com/toner/{z}/{x}/{y}.png'</span>, {
                attribution: <span style="color:#cc6600">'Map tiles by &lt;a href="http://stamen.com"&gt;Stamen Design&lt;/a&gt;, under &lt;a href="http://creativecommons.org/licenses/by/3.0"&gt;CC BY 3.0&lt;/a&gt;. Data by &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt;, under &lt;a href="http://www.openstreetmap.org/copyright"&gt;ODbL&lt;/a&gt;.'</span>,
                maxZoom: <span style="color:blue">12</span>
             }).addTo(map);</pre>
@@ -123,9 +123,9 @@
       <p>Please turn in <b>a separate html file for each question</b> below via Dropbox on D2L. There will be <b>FOUR</b> in total. You don't have to turn in the leaflet files as I will have them on my computer.</p>
       <ul>
         <li><b>Question 1:</b> Submit the html file you have just completed by following along the instructions (7 pts).</li>
-        <li><b>Question 2:</b> Save the html file as <code>chicago.html</code>. Modify the code to show only Chicago at the appropriate geographical coordinates and zoom level (6 pts). </li>
-        <li><b>Question 3:</b> Save the html file as <code>stamen.html</code>. Modify the code to use a different basemap from Stamen, e.g., terrain or watercolor. Then, change the location to show some other places other than Chicago or the US (6 pts). </li>
-        <li><b>Question 4:</b> Save the html file as <code>basemap.html</code>. Modify the code to use a basemap from Mapbox or OpenStreetMap. Then, change the location to show some other places other than Chicago or the US (6 pts).</li>
+        <li><b>Question 2:</b> Save the html file as <code>chicago.html</code>. Modify the code to show <b>Chicago</b> at an appropriate geographical coordinates (<i>Hint: use Google Map to figure out the lat and long</i>) and zoom level (<i>Hint: try a couple different zoom levels and pick the one that works the best</i>) (6 pts). </li>
+        <li><b>Question 3:</b> Save the html file as <code>stamen.html</code>. Modify the code to use <b>a different basemap from Stamen</b>, e.g., terrain or watercolor (<i>Hint: refer to the url templates provided in the instructions above</i>). Then, change the location and/or zoom level to show <b>another place</b> other than Chicago or the US (6 pts). </li>
+        <li><b>Question 4:</b> Save the html file as <code>basemap.html</code>. Modify the code to use <b>a basemap from Mapbox or OpenStreetMap</b>. Then, change the location and/or zoom level to show <b>another place</b> (6 pts).</li>
       </ul>
     </section>
 
