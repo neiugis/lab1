@@ -13,11 +13,9 @@
 
     <title>Use Mapbox Tiles </title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../css/business-casual.css" rel="stylesheet">
+   
+    <link href="../main.css" rel="stylesheet">
+    
 
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -40,11 +38,11 @@
   <div class="row">
       <div class="box">
   <ul>
-      <li>In your <code>basemap.html</code>, replace the <code>L.tileLayer()</code> part to the following: <br>
+      <li>In your <code>basemap.html</code>, replace the <code>L.tileLayer()</code> part with the following lines. Note you will need to modify the red parts according to the requirements. <br>
       <pre>L.tileLayer(<span class="hljs-string" style="color:#cc6600">'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'</span>, {
     attribution: <span class="hljs-string" style="color:#cc6600">'Map data &amp;copy; </span><span class="text-cut" data-cut="[…]"style="color:#cc6600"><span class="hljs-string"style="color:#cc6600">&lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href="http://creativecommons.org/licenses/by-sa/2.0/"&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href="http://mapbox.com"&gt;Mapbox&lt;/a&gt;</span></span><span class="hljs-string">'</span>,
     maxZoom: <span class="hljs-number" style="color:blue">18</span>,
-    id: <span class="hljs-string">'</span><span class="hljs-string" style="color:red">map id (to be replaced by you, see below)</span><span class="hljs-string">'</span>,
+    id: <span class="hljs-string">'</span><span class="hljs-string" style="color:red">map id (to be replaced with YOUR assigned ID, see below)</span><span class="hljs-string">'</span>,
     accessToken: <span class="hljs-string">'</span><span class="hljs-string" style="color:red">your mapbox public access token (to be replaced, see below)</span><span class="hljs-string">'</span>
 }).addTo(map);</pre>
 

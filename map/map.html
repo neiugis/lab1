@@ -14,13 +14,13 @@
     </head>
 
     <body>
-        <div id="mymap" style="height: 800px"></div>
+        <div id="mymap" style="height: 430px"></div>
 
         <script type="text/javascript">
 
             var map = L.map('mymap', {
-                center: [38.1625228, -96.9633171],
-                zoom: 5
+                center: [37.8, -96],
+                zoom: 4
             });
 
             L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
@@ -28,6 +28,7 @@
                 maxZoom: 10,
                 minZoom: 4
             }).addTo(map);
+
 
         </script>
 
