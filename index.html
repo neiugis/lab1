@@ -68,16 +68,16 @@
                        <li>Open your <b>code editor</b> (e.g., <b>Atom</b>) and add the following lines to prepare your page (you may copy and paste). 
                    Please take some time to <b>go over these basic html tags in the HTML tutorial</b>  (<a href="https://www.w3schools.com/tags/default.asp" target = "_blank">https://www.w3schools.com/tags/default.asp</a>) before continue, or you may not be able to understand the following steps.<br> Indentations of HTML tags do not affect how your page looks, but it helps us better organize the documents. <br>
                    <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-                &lt;html&gt;
-                &lt;head&gt;
-                &lt;title&gt;My map&lt;/title&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;My map&lt;/title&gt;
 
-                &lt;/head&gt;
+    &lt;/head&gt;
 
-                &lt;body&gt;
+    &lt;body&gt;
 
-                &lt;/body&gt;
-                &lt;/html&gt;</code></pre>
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
                        </li>
                    <li>Save the document as <code>map1.html</code> to the folder you have created. This will create a blank web page. Note you will need to <b>specify the file extension as .html</b> to make it work. </li><br>
 
@@ -85,14 +85,14 @@
 
                     <li>In the <code>head</code> section of your html document, include the following line to link to the Leaflet CSS file:
                                <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/leaflet@1.3.4/dist/leaflet.css&quot;
-                integrity=&quot;sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==&quot;
-                crossorigin=&quot;&quot;/&gt;</code></pre>
+        integrity=&quot;sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==&quot;
+        crossorigin=&quot;&quot;/&gt;</code></pre>
                        </li>
 
                        <li>Also link to the Leaflet JavaScript file in the <code>head</code> section. Make sure you put this AFTER Leaflet's CSS:
                    <pre><code class="language-html">&lt;script src=&quot;https://unpkg.com/leaflet@1.3.4/dist/leaflet.js&quot;
-                integrity=&quot;sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==&quot;
-                crossorigin=&quot;&quot;&gt;&lt;/script&gt;</code></pre></li>
+        integrity=&quot;sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==&quot;
+        crossorigin=&quot;&quot;&gt;&lt;/script&gt;</code></pre></li>
                        </ul>
                     <p>Your <code>map1.html</code> is still <b>blank</b> at this point as we haven't created any content.</p>
 
@@ -110,7 +110,7 @@
                        <li>Also in the <code>body</code> section, include the <code>script</code> element AFTER the <code>div</code> element:
                        <pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
 
-                &lt;/script&gt;</code></pre>
+&lt;/script&gt;</code></pre>
 
                        <p>The <code>script</code> section here will contain detailed scripting statements for creating the map. <b>Therefore, all code lines related to defining the map should be placed in the <code>script</code> section</b> of the html document.</p></li>
 
@@ -121,9 +121,9 @@
                            <li>However, <b>single and double quotes work the same</b>.</li></ul>
 
                            <pre><code class="language-javascript">var map = L.map('mymap', {
-                center: [37.8, -96],
-                zoom: 4
-                });</code></pre>
+    center: [37.8, -96],
+    zoom: 4
+});</code></pre>
 
                            These may look a bit tricky, so let's take a closer look:
                             <ul>
@@ -152,10 +152,10 @@
                      <img src="img/url_stamen.png" style="width: 100%">
                    <ul>
                            <li>Next, we will add a tile layer from Stamen Toner. <code>L.tileLayer()</code> is used to load tile maps. Place the lines below in the <code>script</code> section, AFTER the <code>L.map()</code> function.s
-                               <pre><code class="language-javascript">L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
-                attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
-                maxZoom: 12
-                }).addTo(map);</code></pre>
+                   <pre><code class="language-javascript">L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+    maxZoom: 12
+    }).addTo(map);</code></pre>
                     <ul>
                         <li>In addition to the URL, the <b>attribution</b> text is required by the tile layer providers. You should be able to find official guidance from their website. Note the attribution text is surrounded by quotation marks.</li>
                         <li>The maximum zoom level of the layer is also defined by <code>maxZoom</code>. You can also define the minimum zoom level using <code>minZoom</code>. If you want to learn more about other available options to control your map display, please refer to the <a href="http://leafletjs.com/reference.html" target="_blank">Leaflet reference</a>.</li>
