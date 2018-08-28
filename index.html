@@ -66,7 +66,10 @@
                    <p>Since the maps will be displayed on a web page, we will first prepare the HTML document.</p>
                    <ul>
                        <li>Open your <b>code editor</b> (e.g., <b>Atom</b>) and add the following lines to prepare your page (you may copy and paste). 
-                   Please take some time to <b>go over these basic html tags in the HTML tutorial</b>  (<a href="https://www.w3schools.com/tags/default.asp" target = "_blank">https://www.w3schools.com/tags/default.asp</a>) before continue, or you may not be able to understand the following steps.<br> Indentations of HTML tags do not affect how your page looks, but it helps us better organize the documents. <br>
+                   Please take a few minutes to <b>quickly go over these basic html tags</b>  (<a href="https://www.w3schools.com/tags/default.asp" target = "_blank">https://www.w3schools.com/tags/default.asp</a>) before continue, or you may not fully understand the following steps.<br>
+                   
+                           <i class="fa fa-spinner fa-spin"></i> Indentations of HTML tags do not affect how your page looks, but it helps us better organize the document. <br>
+                           
                    <pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
@@ -79,11 +82,11 @@
     &lt;/body&gt;
 &lt;/html&gt;</code></pre>
                        </li>
-                   <li>Save the document as <code>map1.html</code> to the folder you have created. This will create a blank web page. Note you will need to <b>specify the file extension as .html</b> to make it work. </li><br>
+                   <li>Save the document as <code>map1.html</code> to the folder you have created. This will create a blank web page. Note you will need to <b>TYPE the file extension as .html</b> to make it work. </li><br>
 
-                <p>Now we will include the Leaflet CSS and JavaScript in the html document so that we could use Leaflet styles and functions for interactive mapping. Instead of downloading the .css and .js files, we will use hosted versions of Leaflet to access its latest release. </p>
+                <p>Next, we will include the Leaflet CSS and JavaScript in the html document so that we could use Leaflet styles and functions for interactive mapping. Instead of downloading the .css and .js files, we will use hosted versions of Leaflet to access its latest release. </p>
 
-                    <li>In the <code>head</code> section of your html document, include the following line to link to the Leaflet CSS file:
+                    <li>In the <code>head</code> section of your html document, include the following lines to link to the Leaflet CSS file:
                                <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/leaflet@1.3.4/dist/leaflet.css&quot;
         integrity=&quot;sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==&quot;
         crossorigin=&quot;&quot;/&gt;</code></pre>
@@ -94,48 +97,54 @@
         integrity=&quot;sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==&quot;
         crossorigin=&quot;&quot;&gt;&lt;/script&gt;</code></pre></li>
                        </ul>
-                    <p>Your <code>map1.html</code> is still <b>blank</b> at this point as we haven't created any content.</p>
+                    <p>Your <code>map1.html</code> still looks <b>blank</b> at this point as we haven't created any content.</p>
 
 
                     
                 <p><a id="map" title="Initialize the Map" class="toc-item"></a></p>
                 <h3><i class="fa fa-paint-brush"></i> Initialize the map</h3>      
-                <p>Now you’re ready to set up the map.</p>
+                <p>Now we’re ready to set up the map.</p>
                    <ul>
-                                  <li>In the <code>body</code> section, include a <code>div</code> element where you want your map to be. The <code>&lt;div&gt;</code> tag (<a href="https://www.w3schools.com/tags/tag_div.asp">https://www.w3schools.com/tags/tag_div.asp</a>) defines a division or a section in an HTML document. We use it to define a placeholder for adding the map later. 
+                                  <li>In the <code>body</code> section, include a <code>div</code> element where you want your map to be (code line below). The <code>&lt;div&gt;</code> tag (<a href="https://www.w3schools.com/tags/tag_div.asp" target ="_blank">https://www.w3schools.com/tags/tag_div.asp</a>) defines a division or a section in an HTML document. We use it to define a placeholder for adding the map later. 
                            <pre><code class="language-html">&lt;div id=&quot;mymap&quot; style=&quot;height: 500px&quot;&gt;&lt;/div&gt;</code></pre>
 
-                       Note we also need to assign it an id and define its height (<b>px</b> stands for pixel). Both <code>id</code> and <code>style</code> are HTML attributes (see a complete list of HTML attributes at: <a href ="https://www.w3schools.com/tags/ref_standardattributes.asp">https://www.w3schools.com/tags/ref_standardattributes.asp</a>). You may want to bookmark this link for future reference.</li>
+                       Note we also assigned the div an id (<code><span style="color:#690">'mymap'</span></code>) and defined its height (<b>px</b> stands for pixels). <br>
+                       Both <code>id</code> and <code>style</code> are HTML attributes (see a complete list of HTML attributes at: <a href ="https://www.w3schools.com/tags/ref_standardattributes.asp" target="_blank">https://www.w3schools.com/tags/ref_standardattributes.asp</a>). You may want to bookmark this link for future reference.</li>
 
                        <li>Also in the <code>body</code> section, include the <code>script</code> element AFTER the <code>div</code> element:
                        <pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
 
 &lt;/script&gt;</code></pre>
 
-                       <p>The <code>script</code> section here will contain detailed scripting statements for creating the map. <b>Therefore, all code lines related to defining the map should be placed in the <code>script</code> section</b> of the html document.</p></li>
+                       <p>The <code>script</code> section here will contain detailed scripting statements for creating the map. <b>Therefore, all code lines related to defining the map should be placed in the <code>script</code> section</b>.</p></li>
 
-                       <li>First, we will initialize the map using the <code>L.map()</code> function of Leaflet. In this example, we will map the <b>contiguous 48 states of the U.S.</b> <br>Place the lines below in the <code>script</code> section. 
+                       <li>Now, we will initialize the map using the <code>L.map()</code> function of Leaflet. In this example, we will map the <b>contiguous 48 states of the U.S.</b> <br>Place the lines below in the <code>script</code> section. 
                            <ul>
-                           <li>Again, indentations do not matter, but they help make things clear.</li>
-                           <li>However, be very careful about the <b>punctuation marks</b> (e.g., brackets, comma, semicolon), which are important in JavaScript syntax. When you replace content later, make sure to NOT remove/change these from the sample.</li>
+                           <li>Again, indentations do not matter, but they help us stay organized.</li>
+                           <li>However, be very careful about the <b>punctuation marks</b> (<i>e.g., brackets, comma, semicolon</i>), which are important in JavaScript syntax. When you replace content later, make sure to NOT remove/change these from the sample.</li>
                            <li>However, <b>single and double quotes work the same</b>.</li></ul>
 
                            <pre><code class="language-javascript">var map = L.map('mymap', {
-    center: [37.8, -96],
-    zoom: 4
+    center: [38.1625228, -96.9633171],
+    zoom: 5
 });</code></pre>
 
-                           These may look a bit tricky, so let's take a closer look:
+                           These lines may look a bit tricky, so let's take a closer look:
                             <ul>
-                                <li>Leaflet offers a wide range of fuctions related to interactive mapping. The <code>L.map()</code>, for example, is used to initialize a map here on the <code><span style="color:#690">'mymap'</span></code> div (Recall that we assigned "mymap" as the id for the div where we wanted to put the map). </li>
+                                <li>Leaflet offers a wide range of fuctions related to interactive mapping. The <code>L.map()</code>, for example, is used here to initialize a map on the <code><span style="color:#690">'mymap'</span></code> div (Recall that we assigned "mymap" as the id for the div where we wanted to put the map). </li>
 
-                                <li>We also defined the <code><span style="color:#000; font-weight:bold">center</span></code> in the form of [<code>latitude</code>, <code>longitude</code>]. Here, we used <code>[37.8, -96]</code> as an approximate center of the United States. Note you may adjust the number of digits for the lat/lon, depending on the scale of your map.</li>
+                                <li>We also defined the <code><span style="color:#000; font-weight:bold">center</span></code> in the form of [<code>latitude</code>, <code>longitude</code>]. Here, we used <code>[38.1625228, -96.9633171]</code> as an approximate center of the contiguous US.<br> 
+                                Note you may adjust the number of digits for the lat/lon, depending on the desired precision.</li>
 
-                                <li>Leaflet also works with <b>zoom levels</b> for scale setup: Interactive, tiled maps are designed and rendered at a number of different scales. A zoom level is a predefined scale at which a map is rendered. OpenStreetMap, Google Maps, and most other online maps zoom levels are scaled such that the entire world fills a 256x256 pixel tile at <b>zoom level 0</b>, and doubles in width and height at each subsequent zoom level. <br><i>For example:</i> at <b>zoom level 6</b> you get a full view of a medium-sized country. At zoom level 11 you’re looking at a metropolitan-region-sized area. At <b>zoom level 16</b> you’re down to a neighborhood scale (according to <a href="https://www.mapbox.com/tilemill/docs/manual/basics/" target="_blank">Mapbox</a>). To read more, here is a short article on zoom levels from Leaflet (read <a href="https://leafletjs.com/examples/zoom-levels/" target="_blank">here</a>)</li>  
-                                <li>You probably have noticed the <code class="language-javascript">var map =</code> portion. Basically, we have assigned this inialized map to a variable (<code class="language-javascript">var</code>) named <code class="language-javascript">map</code>. This will be useful later when we need to add layers to this map.</li>
+                                <li>Leaflet also works with <b>zoom levels</b> for scale setup: <br>
+                                    "Interactive, tiled maps are designed and rendered at a number of different scales. A zoom level is a predefined scale at which a map is rendered. OpenStreetMap, Google Maps, and most other online maps zoom levels are scaled such that the entire world fills a 256x256 pixel tile at <b>zoom level 0</b>, and doubles in width and height at each subsequent zoom level." <br><i>For example:</i> at <b>zoom level 6</b> you get a full view of a medium-sized country. At <b>zoom level 11</b> you’re looking at a metropolitan-region-sized area. At <b>zoom level 16</b> you’re down to a neighborhood scale (according to <a href="https://www.mapbox.com/tilemill/docs/manual/basics/" target="_blank">Mapbox</a>). To read more, here is a short article (read <a href="https://leafletjs.com/examples/zoom-levels/" target="_blank">here</a>)</li>  
+                                
+                                <li>You probably have noticed the <code class="language-javascript">var map =</code> portion. Basically, we have assigned the inialized map to a variable (<code class="language-javascript">var</code>) named <code class="language-javascript">map</code>. This will be useful later when we need to add layers to this map.</li>
 
-                             </ul></li>     
-                       <li>Now, you might be wondering if there is an easier way to figure out the center lat/lon and zoom level of a map. The answer is YES! -- Open <a href="https://www.google.com/maps" target="_blank">Google Map</a>, zoom to the geographic area you are intended to map. When you are satisfied, look for the center lat/lon and zoom level from the address bar (see image below).</li>   
+                             </ul></li>     <br>
+                       
+                       <li>Now, you might be wondering if there is an easier way to figure out the center lat/lon and zoom level of a map. The answer is YES! <br>
+                           - Open <a href="https://www.google.com/maps" target="_blank">Google Map</a>, zoom to the geographic area you are intended to map. When you are satisfied, look for the center lat/lon and zoom level from the address bar (see image below).</li>   
 
                      <img id="myImg" src="img/googlemap.png" alt="Example" style="width:100%;" >
 
@@ -162,7 +171,7 @@
                         <li><code>addTo(map)</code> adds the tile layers to the map we have initialized (<code><span style="color: #000">map</span></code> is the variable name of the initialized map we have defined earlier).</li></ul>
 
                        <br>
-                     If you have followed along, your map should look like below (No? Take a look at the <a href="map/map1.html" target="_blank">sample code</a>)
+                     If you have followed along, your map should look like below (No? Take a look at the <a href="map/map1.txt" target="_blank">sample code</a>)
                      <iframe src="map/map1.html" width=100% height=520 frameborder=0></iframe><br>
 
                      </li></ul>
