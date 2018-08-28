@@ -155,16 +155,18 @@
                 <p><a id="tile" title="Add Tile Layers" class="toc-item"></a></p>
                 <h2><i class="fa fa-map"></i>Add Tile Layers</h2>
                    <p>With Leaflet, we could add tile layers as basemaps.
-                   A <strong>tile layer</strong> is a set of web-accessible tiles that reside on a server. Access to the appropriate tiles in the tile layer depends on the URL to the tile layer (ESRI).</p>
-                   <p>For example, when adding a tile layer using Leaflet, we must provide a URL in the following form<br> <code>http://{s}.somedomain.com/blabla/{z}/{x}/{y}.png</code>. No worries if you don't quite understand the URL structure. We use publicly available tile layers (e.g., Stamen, Mapbox, etc.) and you could always acquire the tile layer URL from these sources.
-                     <br>For example, below is the information from the <a href="http://maps.stamen.com/#watercolor/12/37.7706/-122.3782" target="_blank">Stamen Maps</a>' website. Note toner, terrain, and watercolor are the names of the designed maps.</p>
+                   A <strong>tile layer</strong> is a set of web-accessible tiles that reside on a server. Access to the tile layer depends on an URL.</p>
+                   <p>For example, when adding a tile layer using Leaflet, we must provide a URL in the following form<br> <code>http://{s}.somedomain.com/blabla/{z}/{x}/{y}.png</code>. <br>
+                    No worries if you don't quite understand the URL structure. We use publicly available tile layers and you could always acquire the URL from these sources, such as  Stamen and Mapbox.</p>
+                    
+                     <p>For example, below is the URL information from the <a href="http://maps.stamen.com/#watercolor/12/37.7706/-122.3782" target="_blank">Stamen Maps</a>' website. Note toner, terrain, and watercolor are the names of the different styles/designs.</p>
                      <img src="img/url_stamen.png" style="width: 100%">
                    <ul>
-                           <li>Next, we will add a tile layer from Stamen Toner. <code>L.tileLayer()</code> is used to load tile maps. Place the lines below in the <code>script</code> section, AFTER the <code>L.map()</code> function.s
+                           <li>Next, we will add the <a href="http://maps.stamen.com/toner/#12/37.7706/-122.3782" target="_blank">Toner</a> style tile layer. <code>L.tileLayer()</code> is used to load tile layers. Place the lines below in the <code>script</code> section, AFTER the <code>L.map()</code> function.s
                    <pre><code class="language-javascript">L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
     maxZoom: 12
-    }).addTo(map);</code></pre>
+}).addTo(map);</code></pre>
                     <ul>
                         <li>In addition to the URL, the <b>attribution</b> text is required by the tile layer providers. You should be able to find official guidance from their website. Note the attribution text is surrounded by quotation marks.</li>
                         <li>The maximum zoom level of the layer is also defined by <code>maxZoom</code>. You can also define the minimum zoom level using <code>minZoom</code>. If you want to learn more about other available options to control your map display, please refer to the <a href="http://leafletjs.com/reference.html" target="_blank">Leaflet reference</a>.</li>
