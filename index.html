@@ -43,7 +43,7 @@
             <div class="article-heading js-article-heading js-geopattern" style="background-color:#660066">
                 <div class="wrap">
                   <h1>Lab 1. Basemaps &amp; Zoom Level   <i class="fa fa-leaf"></i></h1>
-                  <p style="color:#FFC300"><b><i class="fa fa-spinner fa-spin"></i>  Due: 11:59 pm, Wednesday, 9/12</b></p>
+                  <p style="color:#FFC300"><b><i class="fa fa-spinner fa-spin"></i>  Due: 11:59 pm, Thursday, 9/10</b></p>
                 </div>
             </div>
 
@@ -58,15 +58,15 @@
 
                     <p><i class="fa fa-spinner fa-spin"></i>  Please read the instructions carefully (including the explanations of each step) and complete the assignment in the <a href="#deliverable">Deliverables</a> section at the bottom. </p>
                     <p><i class="fa fa-spinner fa-spin"></i>  In this lab, we will get started with Leaflet (<a href="https://leafletjs.com/" target = "_blank">https://leafletjs.com/</a>), a popular open-source JavaScript library for making interactive maps.</p>
-                    <p><i class="fa fa-spinner fa-spin"></i>  Specifically, we will learn how to set up the map with appropriate geographic location and scale (e.g., <b>zoom level</b>) and then add <b>tile layers</b> as basemaps.</p>
+                    <p><i class="fa fa-spinner fa-spin"></i>  Specifically, we will learn how to set up a map with appropriate geographic location and scale (e.g., <b>zoom level</b>) and then add <b>tile layers</b> as basemaps.</p>
 
                     
 
                   <p><a id="prep" title="Preparation Steps" class="toc-item"></a></p>
                   <h3><i class="fa fa-paint-brush"></i> Preparation Steps</h3>
-                   <p>Since the maps will be displayed on a web page, we will first prepare the HTML document.</p>
+                   <p>Since the maps will be displayed as a web page, we will first prepare the HTML document.</p>
                    <ul>
-                       <li>Open your <b>code editor</b> (e.g., <b>Atom</b>) and add the following lines to prepare your page (you may copy and paste). 
+                       <li>Open your <b>code editor</b> (e.g., <b>Atom</b>) and add the following lines (in the white box) to prepare your page (you may copy and paste). 
                    Please take a few minutes to <b>quickly go over these basic html tags</b>  (<a href="https://www.w3schools.com/tags/default.asp" target = "_blank">https://www.w3schools.com/tags/default.asp</a>) before continue, or you may not fully understand the following steps.<br>
                    
                            <i class="fa fa-spinner fa-spin"></i> Indentations of HTML tags do not affect how your page looks, but it helps us better organize the document. <br>
@@ -87,15 +87,15 @@
 
                 <p>Next, we will include the Leaflet CSS and JavaScript in the html document so that we could use Leaflet styles and functions for interactive mapping. Instead of downloading the .css and .js files, we will use hosted versions of Leaflet to access its latest release. </p>
 
-                    <li>In the <code>head</code> section of your html document, include the following lines to link to the Leaflet CSS file:
-                               <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/leaflet@1.3.4/dist/leaflet.css&quot;
-        integrity=&quot;sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==&quot;
+                    <li>Insert the following line inside the <code>head</code> section, right below the <code>&lt;title&gt;</code> line, to link to the Leaflet CSS file:
+                               <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/leaflet@1.6.0/dist/leaflet.css&quot;
+        integrity=&quot;sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==&quot;
         crossorigin=&quot;&quot;/&gt;</code></pre>
                        </li>
 
                        <li>Also link to the Leaflet JavaScript file in the <code>head</code> section. Make sure you put this AFTER Leaflet's CSS:
-                   <pre><code class="language-html">&lt;script src=&quot;https://unpkg.com/leaflet@1.3.4/dist/leaflet.js&quot;
-        integrity=&quot;sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==&quot;
+                   <pre><code class="language-html">&lt;script src=&quot;https://unpkg.com/leaflet@1.6.0/dist/leaflet.js&quot;
+        integrity=&quot;sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==&quot;
         crossorigin=&quot;&quot;&gt;&lt;/script&gt;</code></pre></li>
                        </ul>
                     <p>Your <code>map1.html</code> still looks <b>blank</b> at this point as we haven't created any content.</p>
