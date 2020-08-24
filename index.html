@@ -56,7 +56,7 @@
                   <p><a id="overview" title="Overview" class="toc-item"></a></p>
                   <h3><i class="fa fa-paint-brush"></i> Overview</h3>
 
-                    <p><i class="fa fa-spinner fa-spin"></i>  Please read the instructions carefully (including the explanations of each step) and complete the assignment in the <a href="#deliverable">Deliverables</a> section at the bottom. </p>
+                    <p><i class="fa fa-spinner fa-spin"></i>  Please read the instructions carefully (including the explanations of each step and the external links) and complete the assignment in the <a href="#deliverable">Deliverables</a> section at the bottom. </p>
                     <p><i class="fa fa-spinner fa-spin"></i>  In this lab, we will get started with Leaflet (<a href="https://leafletjs.com/" target = "_blank">https://leafletjs.com/</a>), a popular open-source JavaScript library for making interactive maps.</p>
                     <p><i class="fa fa-spinner fa-spin"></i>  Specifically, we will learn how to set up a map with appropriate geographic location and scale (e.g., <b>zoom level</b>) and then add <b>tile layers</b> as basemaps.</p>
 
@@ -106,7 +106,7 @@
                 <h3><i class="fa fa-paint-brush"></i> Initialize the map</h3>      
                 <p>Now we’re ready to set up the map.</p>
                    <ul>
-                                  <li>In the <code>body</code> section, include a <code>div</code> element (code line below). The <code>&lt;div&gt;</code> tag (<a href="https://www.w3schools.com/tags/tag_div.asp" target ="_blank">https://www.w3schools.com/tags/tag_div.asp</a>) defines a division or a section in an HTML document. We use it to define a placeholder for adding the map later. 
+                                  <li>Inside the <code>body</code> section, include a <code>div</code> element (code line below). The <code>&lt;div&gt;</code> tag (<a href="https://www.w3schools.com/tags/tag_div.asp" target ="_blank">https://www.w3schools.com/tags/tag_div.asp</a>) defines a division or a section in an HTML document. We use it to define a placeholder for adding the map later. 
                            <pre><code class="language-html">&lt;div id=&quot;mymap&quot; style=&quot;height: 800px&quot;&gt;&lt;/div&gt;</code></pre>
 
                        Note we also assigned the div an id (<code><span style="color:#690">'mymap'</span></code>) and defined its height (<b>px</b> stands for pixels). <br>
@@ -117,7 +117,7 @@
 
 &lt;/script&gt;</code></pre>
 
-                       <p>The <code>script</code> section here will contain detailed scripting statements for creating the map. <b>Therefore, all code lines related to defining the map should be placed in the <code>script</code> section</b>.</p></li>
+                       <p>The <code>script</code> section here will contain detailed scripting statements for creating the map. <b>Therefore, all code lines related to defining the map should be placed in the <code>script</code> section</b>, i.e., between the start and end <code>script</code> tag.</p></li>
 
                        <li>Now, we will initialize the map using the <code>L.map()</code> function of Leaflet. In this example, we will map the <b>contiguous U.S.</b> <br>Place the lines below in the <code>script</code> section. 
                            <ul>
@@ -132,13 +132,13 @@
 
                            These lines may look a bit tricky, so let's take a closer look:
                             <ul>
-                                <li>Leaflet offers a wide range of fuctions related to interactive mapping. The <code>L.map()</code>, for example, is used here to initialize a map on the <code><span style="color:#690">'mymap'</span></code> div (Recall that we assigned "mymap" as the id for the div where we wanted to put the map). </li>
+                                <li>Leaflet offers a wide range of fuctions related to interactive mapping. The <code>L.map()</code>, for example, is used here to initialize a map on the <code><span style="color:#690">'mymap'</span></code> div (Recall that we assigned "mymap" as the id of the div where we want to put the map). </li>
 
                                 <li>We also defined the <code><span style="color:#000; font-weight:bold">center</span></code> in the form of [<code>latitude</code>, <code>longitude</code>]. Here, we used <code>[38.1625228, -96.9633171]</code> as an approximate center of the contiguous US.<br> 
                                 Note you may adjust the number of digits for the lat/lon, depending on the desired precision.</li>
 
                                 <li>Leaflet also works with <b>zoom levels</b> for scale setup: <br>
-                                    "Interactive, tiled maps are designed and rendered at a number of different scales. A zoom level is a predefined scale at which a map is rendered. OpenStreetMap, Google Maps, and most other online maps zoom levels are scaled such that the entire world fills a 256x256 pixel tile at <b>zoom level 0</b>, and doubles in width and height at each subsequent zoom level." <br><i>For example:</i> at <b>zoom level 6</b> you get a full view of a medium-sized country. At <b>zoom level 11</b> you’re looking at a metropolitan-region-sized area. At <b>zoom level 16</b> you’re down to a neighborhood scale (according to <a href="https://www.mapbox.com/tilemill/docs/manual/basics/" target="_blank">Mapbox</a>). To read more, here is a short article (read <a href="https://leafletjs.com/examples/zoom-levels/" target="_blank">here</a>)</li>  
+                                    "Interactive, tiled maps are designed and rendered at a number of different scales. A zoom level is a predefined scale at which a map is rendered. OpenStreetMap, Google Maps, and most other online maps zoom levels are scaled such that the entire world fills a 256x256 pixel tile at <b>zoom level 0</b>, and doubles in width and height at each subsequent zoom level." <br><i>For example:</i> at <b>zoom level 6</b> you get a full view of a medium-sized country. At <b>zoom level 11</b> you’re looking at a metropolitan-region-sized area. At <b>zoom level 16</b> you’re down to a neighborhood scale (according to <a href="https://docs.mapbox.com/help/glossary/zoom-level/" target="_blank">Mapbox</a>). To read more, here is a short article (read <a href="https://leafletjs.com/examples/zoom-levels/" target="_blank">here</a>)</li>  
                                 
                                 <li>You probably have noticed the <code class="language-javascript">var map =</code> portion. Basically, we have assigned the initialized map to a variable (<code class="language-javascript">var</code>) named <code class="language-javascript">map</code>. This will be useful later when we need to add layers to this map.</li>
 
@@ -177,7 +177,7 @@
                         <li>In addition to the URL, the <b>attribution</b> text is required by the tile layer providers. You should be able to find official guidance from their website. Note the attribution text is surrounded by quotation marks.</li>
                         
                         <li>The maximum and minimum  zoom levels of the layer are defined by <code>maxZoom</code> and <code>minZoom</code>. Please note that a comma <code>,</code> is required to separate the statements.
-                            <p>If you want to learn more about other available options to control your map display, please refer to the <a href="http://leafletjs.com/reference.html" target="_blank">Leaflet reference</a>.</li>
+                            <p>If you want to learn more about other available options to control your map display, please refer to the <a href="https://leafletjs.com/reference-1.6.0.html" target="_blank">Leaflet reference</a>.</li>
                        <li><code>addTo(map)</code> adds the tile layers to the map we have initialized (<code><span style="color: #000">map</span></code> is the variable name of the initialized map we have defined earlier).</li></ul></li>
 
                        <br>
