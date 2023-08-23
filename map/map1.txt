@@ -23,8 +23,8 @@
             zoom: 5
         });
 
-            L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
-            attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.',
+            L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.png', {
+            attribution: 'Map tiles by Stamen Design, under CC BY 4.0. Data by OpenStreetMap, under ODbL.',
             maxZoom: 10,
             minZoom: 4
         }).addTo(map);

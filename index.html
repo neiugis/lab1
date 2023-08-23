@@ -165,12 +165,12 @@
                    <p>For example, when adding a tile layer using Leaflet, we must provide a URL in the following form<br> <code>http://{s}.somedomain.com/blabla/{z}/{x}/{y}.png</code>. <br>
                     No worries if you don't quite understand the URL structure. We use publicly available tile layers and you could always acquire the URL from these sources, such as  Stamen and Mapbox.</p>
                     
-                     <p>For example, below is the URL information from the <a href="http://maps.stamen.com/#terrain/12/37.7706/-122.3782" target="_blank">Stamen Maps</a>' website. Note toner, terrain, and watercolor are the names of the different styles/designs.</p>
+                     <p>For example, below is the URL information from <a href="https://docs.stadiamaps.com/guides/migrating-from-stamen-map-tiles/#create-a-stadia-maps-account" target="_blank">this page</a>. Note toner, terrain, and watercolor are the names of the different styles/designs.</p>
                      <img src="img/url_stamen.png" style="width: 100%">
                    <ul>
-                           <li>Next, we will add the <a href="http://maps.stamen.com/toner/#14/37.8024/-122.2645" target="_blank">Toner</a> style tile layer. <br><code>L.tileLayer()</code> is used to load tile layers. Place the lines below in the <code>script</code> section, AFTER the <code>L.map()</code> function.
-                   <pre><code class="language-javascript">L.tileLayer('https://tile.stamen.com/toner/{z}/{x}/{y}.png', {
-    attribution: 'Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.',
+                           <li>Next, we will add the <a href="http://maps.stamen.com/toner/#12/37.7706/-122.3782" target="_blank">Toner</a> style tile layer. <br><code>L.tileLayer()</code> is used to load tile layers. Place the lines below in the <code>script</code> section, AFTER the <code>L.map()</code> function.
+                   <pre><code class="language-javascript">L.tileLayer('https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.png', {
+    attribution: 'Map tiles by Stamen Design, under CC BY 4.0. Data by OpenStreetMap, under ODbL.',
     maxZoom: 10,
     minZoom: 4
 }).addTo(map);</code></pre>
