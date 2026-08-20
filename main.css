@@ -347,12 +347,12 @@ ol.toc>li {
 }
 
 ol.toc>li a {
-  color: #fff ;
+  color: #3D2B6B ;
 }
 
 ol.toc>li a.active {
   font-weight: bold;
-  color: #FFC300 ;
+  color: #A83232 ;
 }
 
 .last-updated {
