@@ -119,6 +119,7 @@
                        </li>
 
                        <li>Also link to the Leaflet JavaScript file in the <code>head</code> section. Make sure you put this AFTER Leaflet's CSS:
+                       <li>Also link to the Leaflet JavaScript file in the <code>head</code> section. Make sure you put this AFTER Leaflet's CSS:
                    <pre><code class="language-html">&lt;!-- Make sure you put this AFTER Leaflet's CSS --&gt;
 &lt;script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
@@ -152,16 +153,16 @@
                            <li>However, <b>single and double quotes work the same</b>.</li></ul>
 
                            <pre><code class="language-javascript">var map = L.map('mymap', {
-    center: [38.1625228, -96.9633171],
-    zoom: 5
+    center: [39.23, -97.47],
+    zoom: 4
 });</code></pre>
 
                            These lines may look a bit tricky, so let us take a closer look:
                             <ul>
                                 <li>Leaflet offers a wide range of functions related to interactive mapping. The <code>L.map()</code>, for example, is used here to initialize a map on the <code><span style="color:#690">'mymap'</span></code> div (Recall that we assigned "mymap" as the id of the div where we want to put the map). </li>
 
-                                <li>We also defined the <code><span style="color:#000; font-weight:bold">center</span></code> in the form of [<code>latitude</code>, <code>longitude</code>]. Here, we used <code>[38.1625228, -96.9633171]</code> as an approximate center of the contiguous US.<br>
-                                Note you may adjust the number of digits for the lat/lon, depending on the desired precision.</li>
+                                <li>We also defined the <code><span style="color:#000; font-weight:bold">center</span></code> in the form of [<code>latitude</code>, <code>longitude</code>]. Here, we used <code> [39.23, -97.47]</code> as an approximate center of the contiguous US.<br>
+                                </li>
 
                                 <li>Leaflet also works with <b>zoom levels</b> for scale setup: <br>
                                     "Interactive, tiled maps are designed and rendered at a number of different scales. A zoom level is a predefined scale at which a map is rendered. OpenStreetMap, Google Maps, and most other online maps zoom levels are scaled such that the entire world fills a 256x256 pixel tile at <b>zoom level 0</b>, and doubles in width and height at each subsequent zoom level." <br><i>For example:</i> at <b>zoom level 6</b> you get a full view of a medium-sized country. At <b>zoom level 11</b> you are looking at a metropolitan-region-sized area. At <b>zoom level 16</b> you are down to a neighborhood scale (according to <a href="https://docs.mapbox.com/help/glossary/zoom-level/" target="_blank">Mapbox</a>). To read more, here is a short article on <a href="https://leafletjs.com/examples/zoom-levels/" target="_blank">zoom levels</a>.</li>
