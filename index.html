@@ -246,21 +246,26 @@ Your <code>script</code> is probably above the map <code>div </code>instead of b
                    <p>For this lab, use a provider that needs no key. Any of the five below works by pasting the URL into <code>L.tileLayer()</code>.</p>
 
                    <ul>
-                       <li><b>CARTO Positron</b> &mdash; a clean, pale gray basemap. The usual choice when you plan to put data layers on top, which is what we do starting in Lab 3.
-                           <pre><code class="language-javascript">https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png</code></pre></li>
+    <li><b><a href="https://leaflet-extras.github.io/leaflet-providers/preview/#filter=CartoDB.Positron" target="_blank">CARTO Positron</a></b>
+        &mdash; a clean, pale gray basemap. The usual choice when you plan to put data layers on top.
+        Listed on the preview page as <code>CartoDB.Positron</code>.</li>
 
-                       <li><b>CARTO Dark Matter</b> &mdash; the dark counterpart to Positron. Bright colors stand out well against it.
-                           <pre><code class="language-javascript">https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png</code></pre></li>
+    <li><b><a href="https://leaflet-extras.github.io/leaflet-providers/preview/#filter=CartoDB.DarkMatter" target="_blank">CARTO Dark Matter</a></b>
+        &mdash; the same style in dark gray. Bright colors stand out well against it.
+        Listed as <code>CartoDB.DarkMatter</code>.</li>
 
-                       <li><b>OpenTopoMap</b> &mdash; contour lines and hillshading. Good for terrain and anything in the mountains.
-                           <pre><code class="language-javascript">https://a.tile.opentopomap.org/{z}/{x}/{y}.png</code></pre></li>
+    <li><b><a href="https://leaflet-extras.github.io/leaflet-providers/preview/#filter=OpenStreetMap.Mapnik" target="_blank">OpenStreetMap</a></b>
+        &mdash; the standard OpenStreetMap style. Detailed, with many labels.
+        Listed as <code>OpenStreetMap.Mapnik</code>.</li>
 
-                       <li><b>OpenStreetMap Humanitarian</b> &mdash; higher contrast than standard OpenStreetMap, designed for field work.
-                           <pre><code class="language-javascript">https://tile-a.openstreetmap.fr/hot/{z}/{x}/{y}.png</code></pre></li>
+    <li><b><a href="https://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldImagery" target="_blank">Esri World Imagery</a></b>
+        &mdash; satellite and aerial imagery, with no labels.
+        Listed as <code>Esri.WorldImagery</code>.</li>
 
-                       <li><b>Esri World Imagery</b> &mdash; satellite imagery. Note the reversed order and the missing file extension.
-                           <pre><br><code class="language-javascript">https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}</code></pre></li>
-                   </ul>
+    <li><b><a href="https://leaflet-extras.github.io/leaflet-providers/preview/#filter=OpenTopoMap" target="_blank">OpenTopoMap</a></b>
+        &mdash; a topographic style with contour lines and hillshading.
+        Listed as <code>OpenTopoMap</code>.</li>
+</ul>
 
                    <p><i class="fa fa-exclamation-triangle"></i> <b>Watch out.</b> Most tile URLs end in <code>{z}/{x}/{y}.png</code>, but the Esri one is <code>{z}/{y}/{x}</code> with no <code>.png</code>. If you retype it from memory instead of copying it, you will get a gray map. Copy tile URLs exactly.</p>
 
