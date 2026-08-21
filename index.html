@@ -50,6 +50,12 @@
           border-color:#7FB88C;
           color:#3c6e71;
         }
+          .warning {
+    background: #fff4e5;
+    border-left: 5px solid #e8871a;
+    padding: 10px 14px;
+    margin: 14px 0;
+}
       </style>
 
     </head>
@@ -267,9 +273,30 @@ Your <code>script</code> is probably above the map <code>div </code>instead of b
         Listed as <code>OpenTopoMap</code>.</li>
 </ul>
 
-                   <p><i class="fa fa-exclamation-triangle"></i> <b>Watch out.</b> Most tile URLs end in <code>{z}/{x}/{y}.png</code>, but the Esri one is <code>{z}/{y}/{x}</code> with no <code>.png</code>. If you retype it from memory instead of copying it, you will get a gray map. Copy tile URLs exactly.</p>
+                   <p class="warning"><b>Read this before you paste.</b>
+The code on the preview page ends with <code>});</code>. It creates the basemap
+but does not add it to your map. If you paste it as it is, your page will load
+with no error message and no background. You must change that last line to
+<code>}).addTo(map);</code> yourself.</p>
 
-                   <p><i class="fa fa-lightbulb-o"></i> <b>Attribution.</b> Every provider requires its own attribution text, and the OpenStreetMap line above will not be correct for a different provider. Copy the matching attribution from the provider or from the preview site, and keep it in your <code>L.tileLayer()</code> options.</p>
+<p>Compare the two endings:</p>
+
+<pre><code class="language-javascript">// What you copied from the preview page
+L.tileLayer('https://...', {
+    maxZoom: 20,
+    attribution: '...'
+});
+
+// What your file needs
+L.tileLayer('https://...', {
+    maxZoom: 20,
+    attribution: '...'
+}).addTo(map);</code></pre>
+
+<p>The only difference is <code>.addTo(map)</code> before the semicolon. Without it,
+nothing appears.</p>
+
+                 
 
                 <h3><i class="fa fa-upload"></i> How to submit</h3>
 
