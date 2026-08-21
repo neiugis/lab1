@@ -218,10 +218,10 @@
 
                    <p>A blank page at this stage is normal, and it almost always comes from one of a few causes. Before you rewrite anything, <b>open the browser console and read the error</b>. In Chrome, Edge, or Firefox, press <b>F12</b>, or right-click the page and choose <b>Inspect</b>, then click the <b>Console</b> tab. An error message tells you the file, the line number, and what went wrong.</p>
                    <ul>
-                       <li><b>Nothing at all on the page.</b> Check that the <code>div</code> has a height. A div with no height is invisible even when the map loads correctly.</li>
-                       <li><b>The console says something is not defined.</b> The Leaflet script line is missing, is misspelled, or comes after your own script instead of before it.</li>
-                       <li><b>A gray box with no tiles.</b> The tile layer URL has a typo, or <code>addTo(map)</code> is missing.</li>
-                       <li><b>An unexpected token error.</b> A bracket, comma, or quotation mark is missing. The line number in the console points near the problem, though the real cause is often one line above.</li>
+                       <li><b>The page is blank.</b>
+
+Your script is probably above the map div instead of below it. The browser reads the page from top to bottom, so the script has to come after the div it is looking for. The console will say that the map container was not found.</li>
+                       <li><b>The browser shows your code as text instead of a map.</b> The file may have been saved with the wrong extension. Save it again and make sure the file name ends in <code>.html</code>.</li>
                    </ul>
                    <p><i class="fa fa-lightbulb-o"></i> Reading the console is a skill worth building now. We will practice it together in class on <b>August 31</b>.</p>
 
