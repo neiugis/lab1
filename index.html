@@ -125,7 +125,6 @@
                        </li>
 
                        <li>Also link to the Leaflet JavaScript file in the <code>head</code> section. Make sure you put this AFTER Leaflet's CSS:
-                       <li>Also link to the Leaflet JavaScript file in the <code>head</code> section. Make sure you put this AFTER Leaflet's CSS:
                    <pre><code class="language-html">&lt;!-- Make sure you put this AFTER Leaflet's CSS --&gt;
 &lt;script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
@@ -194,13 +193,14 @@
 
                    <p>With Leaflet, we could add tile layers as basemaps.
                    A <strong>tile layer</strong> is a set of web-accessible tiles that reside on a server. Access to the tile layer depends on an URL.</p>
-                   <p>For example, when adding a tile layer using Leaflet, we must provide a URL in the following form<br> <code>https://somedomain.com/blabla/{z}/{x}/{y}.png</code>. <br>
-                    No worries if you don't quite understand the URL structure. We use publicly available tile layers and you could always acquire the URL from these sources, such as OpenStreetMap.</p>
+                   <p>For example, when adding a tile layer using Leaflet, we must provide a URL that contains three placeholders: <code>{z}</code> for the zoom level, and <code>{x}</code> and <code>{y}</code> for the column and row of each tile. Leaflet fills in the numbers as you pan and zoom.<br>
+                    You do not need to understand the full URL structure. We use publicly available tile layers, and you can always copy the URL from the provider.</p>
+                   <p><i class="fa fa-exclamation-triangle"></i> <b>Copy the URL exactly as the provider writes it.</b> Providers do not all put the placeholders in the same order. Esri, for example, uses <code>{z}/{y}/{x}</code>, while many others use <code>{z}/{x}/{y}</code>. If you "fix" the order, the tiles will load in the wrong places or not at all.</p>
 
                    <ul>
-                           <li>Next, we will add the OpenStreetMap tile layer. <br><code>L.tileLayer()</code> is used to load tile layers. Place the lines below in the <code>script</code> section, AFTER the <code>L.map()</code> function.
-                   <pre><code class="language-javascript">L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&amp;copy; &lt;a href="https://www.openstreetmap.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors',
+                           <li>Next, we will add the Esri World Street Map tile layer, which is hosted on ArcGIS Online. <br><code>L.tileLayer()</code> is used to load tile layers. Place the lines below in the <code>script</code> section, AFTER the <code>L.map()</code> function.
+                   <pre><code class="language-javascript">L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Powered by &lt;a href="https://www.esri.com"&gt;Esri&lt;/a&gt; | Sources: Esri, HERE, Garmin, USGS, Intermap, INCREMENT P, NRCan, Esri Japan, METI, Esri China (Hong Kong), Esri Korea, Esri (Thailand), NGCC, &amp;copy; OpenStreetMap contributors, and the GIS User Community',
     maxZoom: 10,
     minZoom: 4
 }).addTo(map);</code></pre>
@@ -228,6 +228,8 @@
 
 Your <code>script</code> is probably above the map <code>div </code>instead of below it. The browser reads the page from top to bottom, so the <code>script</code> has to come after the <code>div </code> it is looking for. The console will say that the map container was not found.</li>
                        <li><b>The browser shows your code as text instead of a map.</b> The file may have been saved with the wrong extension. Save it again and make sure the file name ends in <code>.html</code>.</li>
+                       <li><b>The map is covered with the words "API key required".</b> This happens with CARTO basemaps, which now need a free key. Your map still works, but the message will stay on it. Choose a tile layer from the list in the <a href="#deliverable">Deliverables</a> section instead.</li>
+                       <li><b>The map shows gray squares that say "Access blocked".</b> This happens with OpenStreetMap tiles when you open the file from your own computer. OpenStreetMap needs to know which website is asking for its tiles, and a file on your computer is not a website. Your code is not wrong. The tiles will appear after you publish the page on GitHub. To test on your computer before you publish, use a different tile layer from the list in the <a href="#deliverable">Deliverables</a> section.</li>
                    </ul>
                    <p><i class="fa fa-lightbulb-o"></i> Reading the console is a skill worth building now. We will practice it together in class on <b>August 31</b>.</p>
 
@@ -249,20 +251,16 @@ Your <code>script</code> is probably above the map <code>div </code>instead of b
 
                    <p><i class="fa fa-exclamation-triangle"></i> <b>This matters because a missing key fails quietly.</b> You will not see an error on the map itself. You will just get a blank or gray page, and the reason will only be visible in the browser console.</p>
 
-                   <p>For this lab, use a provider that needs no key. Any of the five below works by pasting the URL into <code>L.tileLayer()</code>.</p>
+                   <p>For this lab, use a provider that needs no key. Any of the four below works by pasting the URL into <code>L.tileLayer()</code>.</p>
 
                    <ul>
-    <li><b><a href="https://leaflet-extras.github.io/leaflet-providers/preview/#filter=CartoDB.Positron" target="_blank">CARTO Positron</a></b>
+    <li><b><a href="https://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldGrayCanvas" target="_blank">Esri World Light Gray Canvas</a></b>
         &mdash; a clean, pale gray basemap. The usual choice when you plan to put data layers on top.
-        Listed on the preview page as <code>CartoDB.Positron</code>.</li>
+        Listed on the preview page as <code>Esri.WorldGrayCanvas</code>.</li>
 
-    <li><b><a href="https://leaflet-extras.github.io/leaflet-providers/preview/#filter=CartoDB.DarkMatter" target="_blank">CARTO Dark Matter</a></b>
-        &mdash; the same style in dark gray. Bright colors stand out well against it.
-        Listed as <code>CartoDB.DarkMatter</code>.</li>
-
-    <li><b><a href="https://leaflet-extras.github.io/leaflet-providers/preview/#filter=OpenStreetMap.Mapnik" target="_blank">OpenStreetMap</a></b>
-        &mdash; the standard OpenStreetMap style. Detailed, with many labels.
-        Listed as <code>OpenStreetMap.Mapnik</code>.</li>
+    <li><b><a href="https://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldTopoMap" target="_blank">Esri World Topographic Map</a></b>
+        &mdash; a classic topographic style with shaded relief. Detailed, with many labels.
+        Listed as <code>Esri.WorldTopoMap</code>.</li>
 
     <li><b><a href="https://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldImagery" target="_blank">Esri World Imagery</a></b>
         &mdash; satellite and aerial imagery, with no labels.
